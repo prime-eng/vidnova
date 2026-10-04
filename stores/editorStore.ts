@@ -1,0 +1,1 @@
+﻿// VIDNOVA store: editorStore.ts

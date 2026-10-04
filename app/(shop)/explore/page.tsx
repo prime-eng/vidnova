@@ -1,0 +1,2 @@
+﻿// VIDNOVA Explore
+// Katalog overlay

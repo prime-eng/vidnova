@@ -1,0 +1,1 @@
+﻿// VIDNOVA library: utils.ts
