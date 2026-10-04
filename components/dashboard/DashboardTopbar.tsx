@@ -71,9 +71,7 @@ export default function DashboardTopbar({
         lg:px-8
       "
     >
-      {/* Left */}
       <div className="flex min-w-0 items-center gap-3">
-        {/* Mobile Menu */}
         <button
           type="button"
           onClick={onMenuClick}
@@ -92,7 +90,6 @@ export default function DashboardTopbar({
           <Menu size={19} />
         </button>
 
-        {/* Logo */}
         <div className="hidden shrink-0 sm:flex">
           <Image
             src="/images/vidnova_teks.png"
@@ -109,24 +106,19 @@ export default function DashboardTopbar({
           />
         </div>
 
-        {/* Divider */}
         <div className="hidden h-8 w-px bg-white/[0.08] sm:block" />
 
-        {/* Page Title */}
         <div className="min-w-0">
           <h1 className="truncate text-sm font-semibold text-white sm:text-base">
             {page.title}
           </h1>
-
           <p className="mt-0.5 hidden truncate text-[11px] text-slate-500 md:block">
             {page.description}
           </p>
         </div>
       </div>
 
-      {/* Right */}
       <div className="flex items-center gap-2 sm:gap-3">
-        {/* Search */}
         <button
           type="button"
           className="
@@ -145,17 +137,14 @@ export default function DashboardTopbar({
           "
         >
           <Search size={17} />
-
           <span className="hidden text-xs text-slate-600 lg:block">
             Search...
           </span>
-
           <span className="ml-auto hidden rounded-md border border-white/[0.06] px-1.5 py-0.5 text-[9px] text-slate-600 lg:block">
             /
           </span>
         </button>
 
-        {/* Notification */}
         <button
           type="button"
           className="
@@ -170,7 +159,6 @@ export default function DashboardTopbar({
           aria-label="Notifications"
         >
           <Bell size={17} />
-
           <span
             className="
               absolute right-2 top-2
@@ -181,7 +169,6 @@ export default function DashboardTopbar({
           />
         </button>
 
-        {/* Profile */}
         <button
           type="button"
           className="
@@ -207,19 +194,11 @@ export default function DashboardTopbar({
           </div>
 
           <div className="hidden text-left md:block">
-            <p className="text-xs font-semibold text-white">
-              Ari
-            </p>
-
-            <p className="text-[9px] text-slate-600">
-              Creator
-            </p>
+            <p className="text-xs font-semibold text-white">Ari</p>
+            <p className="text-[9px] text-slate-600">Creator</p>
           </div>
 
-          <ChevronDown
-            size={14}
-            className="text-slate-600"
-          />
+          <ChevronDown size={14} className="text-slate-600" />
         </button>
       </div>
     </header>

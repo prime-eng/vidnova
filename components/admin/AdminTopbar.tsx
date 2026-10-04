@@ -105,10 +105,7 @@ export default function AdminTopbar({
           </svg>
         </button>
 
-        {/* =================================================
-            LOGO VIDNOVA
-        ================================================== */}
-
+        {/* LOGO VIDNOVA */}
         <div className="flex shrink-0 items-center">
           <Image
             src="/images/vidnova_teks.png"
@@ -137,9 +134,7 @@ export default function AdminTopbar({
               Admin
             </span>
 
-            <span className="hidden text-slate-700 sm:block">
-              /
-            </span>
+            <span className="hidden text-slate-700 sm:block">/</span>
 
             <h1 className="truncate text-lg font-semibold tracking-tight text-white sm:text-xl">
               {page.title}
@@ -208,10 +203,7 @@ export default function AdminTopbar({
               focus:ring-cyan-400/5
             "
             onChange={(event) => {
-              console.log(
-                "Admin search:",
-                event.target.value
-              );
+              console.log("Admin search:", event.target.value);
             }}
           />
 

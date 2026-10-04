@@ -1,6 +1,6 @@
 "use client";
-
 import { useMemo, useState } from "react";
+import { assetPath } from "@/lib/assetPath";
 
 type AssetCategory =
   | "Background"
@@ -37,7 +37,7 @@ const initialAssets: Asset[] = [
     resolution: "1080 × 1920",
     size: "8.4 MB",
     status: "Active",
-    video: "/videos/cyber-neon-frame.mp4",
+    video: assetPath("/videos/cyber-neon-frame.mp4"),
     thumbnail: "",
     createdAt: "04 Oct 2026",
   },
@@ -50,7 +50,7 @@ const initialAssets: Asset[] = [
     resolution: "1080 × 1920",
     size: "12.8 MB",
     status: "Active",
-    video: "/videos/blue-particle-flow.mp4",
+    video: assetPath("/videos/blue-particle-flow.mp4"),
     thumbnail: "",
     createdAt: "03 Oct 2026",
   },
@@ -63,7 +63,7 @@ const initialAssets: Asset[] = [
     resolution: "1080 × 1920",
     size: "9.6 MB",
     status: "Active",
-    video: "/videos/violet-energy.mp4",
+    video: assetPath("/videos/violet-energy.mp4"),
     thumbnail: "",
     createdAt: "02 Oct 2026",
   },
@@ -76,7 +76,7 @@ const initialAssets: Asset[] = [
     resolution: "1080 × 1920",
     size: "15.2 MB",
     status: "Active",
-    video: "/videos/dark-gradient-motion.mp4",
+    video: assetPath("/videos/dark-gradient-motion.mp4"),
     thumbnail: "",
     createdAt: "01 Oct 2026",
   },
@@ -89,7 +89,7 @@ const initialAssets: Asset[] = [
     resolution: "1080 × 1920",
     size: "6.8 MB",
     status: "Inactive",
-    video: "/videos/glowing-border.mp4",
+    video: assetPath("/videos/glowing-border.mp4"),
     thumbnail: "",
     createdAt: "30 Sep 2026",
   },
@@ -102,7 +102,7 @@ const initialAssets: Asset[] = [
     resolution: "1080 × 1920",
     size: "5.2 MB",
     status: "Active",
-    video: "/videos/light-sweep.mp4",
+    video: assetPath("/videos/light-sweep.mp4"),
     thumbnail: "",
     createdAt: "29 Sep 2026",
   },
@@ -128,14 +128,11 @@ function formatDate(date: Date) {
 
 export default function AssetsPage() {
   const [assets, setAssets] = useState<Asset[]>(initialAssets);
-
   const [search, setSearch] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("All");
   const [statusFilter, setStatusFilter] = useState("All");
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingAsset, setEditingAsset] = useState<Asset | null>(null);
-
   const [name, setName] = useState("");
   const [category, setCategory] =
     useState<AssetCategory>("Background");
@@ -145,7 +142,6 @@ export default function AssetsPage() {
   const [thumbnailFile, setThumbnailFile] = useState<File | null>(
     null
   );
-
   const filteredAssets = useMemo(() => {
     return assets.filter((asset) => {
       const searchMatch =
@@ -153,29 +149,22 @@ export default function AssetsPage() {
         asset.description
           .toLowerCase()
           .includes(search.toLowerCase());
-
       const categoryMatch =
         categoryFilter === "All" ||
         asset.category === categoryFilter;
-
       const statusMatch =
         statusFilter === "All" ||
         asset.status === statusFilter;
-
       return searchMatch && categoryMatch && statusMatch;
     });
   }, [assets, search, categoryFilter, statusFilter]);
-
   const totalAssets = assets.length;
-
   const activeAssets = assets.filter(
     (asset) => asset.status === "Active"
   ).length;
-
   const inactiveAssets = assets.filter(
     (asset) => asset.status === "Inactive"
   ).length;
-
   const openAddModal = () => {
     setEditingAsset(null);
     setName("");
@@ -186,7 +175,6 @@ export default function AssetsPage() {
     setThumbnailFile(null);
     setIsModalOpen(true);
   };
-
   const openEditModal = (asset: Asset) => {
     setEditingAsset(asset);
     setName(asset.name);
@@ -197,18 +185,15 @@ export default function AssetsPage() {
     setThumbnailFile(null);
     setIsModalOpen(true);
   };
-
   const closeModal = () => {
     setIsModalOpen(false);
     setEditingAsset(null);
   };
-
   const handleSaveAsset = () => {
     if (!name.trim()) {
       alert("Asset name is required.");
       return;
     }
-
     if (editingAsset) {
       setAssets((current) =>
         current.map((asset) =>
@@ -239,29 +224,21 @@ export default function AssetsPage() {
         thumbnail: "",
         createdAt: formatDate(new Date()),
       };
-
       setAssets((current) => [newAsset, ...current]);
     }
-
     closeModal();
   };
-
   const handleDelete = (id: number) => {
     const asset = assets.find((item) => item.id === id);
-
     if (!asset) return;
-
     const confirmed = window.confirm(
       `Delete "${asset.name}"?`
     );
-
     if (!confirmed) return;
-
     setAssets((current) =>
       current.filter((item) => item.id !== id)
     );
   };
-
   const toggleStatus = (id: number) => {
     setAssets((current) =>
       current.map((asset) =>
@@ -277,7 +254,6 @@ export default function AssetsPage() {
       )
     );
   };
-
   return (
     <div
       className="
@@ -304,7 +280,7 @@ export default function AssetsPage() {
         "
       >
         <img
-          src="/images/vidnova_teks.png"
+          src={assetPath("/images/vidnova_teks.png")}
           alt=""
           aria-hidden="true"
           className="
@@ -320,7 +296,6 @@ export default function AssetsPage() {
             opacity-[0.085]
           "
         />
-
         <div
           className="
             absolute
@@ -335,7 +310,6 @@ export default function AssetsPage() {
             blur-[140px]
           "
         />
-
         <div
           className="
             absolute
@@ -348,7 +322,6 @@ export default function AssetsPage() {
             blur-[150px]
           "
         />
-
         <div
           className="
             absolute
@@ -362,34 +335,28 @@ export default function AssetsPage() {
           "
         />
       </div>
-
       {/* =====================================================
           MAIN CONTENT
       ===================================================== */}
       <div className="relative z-10 mx-auto max-w-[1600px]">
-
         {/* HEADER */}
         <section className="mb-6">
           <div className="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
             <div>
               <div className="mb-2 flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.8)]" />
-
                 <span className="text-[10px] font-semibold uppercase tracking-[0.25em] text-cyan-400">
                   Asset Management
                 </span>
               </div>
-
               <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
                 MP4 Assets
               </h2>
-
               <p className="mt-1.5 max-w-2xl text-sm text-slate-400">
                 Manage animated assets that creators can use
                 when customizing their VIDNOVA overlays.
               </p>
             </div>
-
             <button
               type="button"
               onClick={openAddModal}
@@ -419,12 +386,10 @@ export default function AssetsPage() {
                 <path d="M12 5v14" />
                 <path d="M5 12h14" />
               </svg>
-
               Add Asset
             </button>
           </div>
         </section>
-
         {/* STATISTICS */}
         <section className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4">
           <StatCard
@@ -434,7 +399,6 @@ export default function AssetsPage() {
             icon="layers"
             accent="cyan"
           />
-
           <StatCard
             label="Active Assets"
             value={activeAssets}
@@ -442,7 +406,6 @@ export default function AssetsPage() {
             icon="check"
             accent="blue"
           />
-
           <StatCard
             label="Inactive Assets"
             value={inactiveAssets}
@@ -450,7 +413,6 @@ export default function AssetsPage() {
             icon="pause"
             accent="violet"
           />
-
           <StatCard
             label="MP4 Library"
             value="100%"
@@ -459,7 +421,6 @@ export default function AssetsPage() {
             accent="amber"
           />
         </section>
-
         {/* TOOLBAR */}
         <section
           className="
@@ -471,7 +432,6 @@ export default function AssetsPage() {
           "
         >
           <div className="flex flex-col gap-3 xl:flex-row">
-
             {/* SEARCH */}
             <div className="relative flex-1">
               <span className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500">
@@ -489,7 +449,6 @@ export default function AssetsPage() {
                   <path d="m20 20-4-4" />
                 </svg>
               </span>
-
               <input
                 type="search"
                 value={search}
@@ -512,7 +471,6 @@ export default function AssetsPage() {
                 "
               />
             </div>
-
             {/* CATEGORY */}
             <select
               value={categoryFilter}
@@ -531,14 +489,12 @@ export default function AssetsPage() {
               "
             >
               <option value="All">All Categories</option>
-
               {categories.map((item) => (
                 <option key={item} value={item}>
                   {item}
                 </option>
               ))}
             </select>
-
             {/* STATUS */}
             <select
               value={statusFilter}
@@ -561,7 +517,6 @@ export default function AssetsPage() {
               <option value="Inactive">Inactive</option>
             </select>
           </div>
-
           <div className="mt-3 flex items-center justify-between border-t border-white/[0.05] pt-3">
             <p className="text-xs text-slate-500">
               Showing{" "}
@@ -574,7 +529,6 @@ export default function AssetsPage() {
               </span>{" "}
               assets
             </p>
-
             {(search ||
               categoryFilter !== "All" ||
               statusFilter !== "All") && (
@@ -592,7 +546,6 @@ export default function AssetsPage() {
             )}
           </div>
         </section>
-
         {/* ASSETS GRID */}
         {filteredAssets.length > 0 ? (
           <section className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
@@ -640,16 +593,13 @@ export default function AssetsPage() {
                 <path d="m9 8 6 4-6 4V8Z" />
               </svg>
             </div>
-
             <h3 className="text-base font-semibold text-white">
               No assets found
             </h3>
-
             <p className="mt-1 max-w-md text-sm text-slate-500">
               Try changing your search or filter, or add a new
               MP4 asset.
             </p>
-
             <button
               type="button"
               onClick={openAddModal}
@@ -668,18 +618,15 @@ export default function AssetsPage() {
             </button>
           </section>
         )}
-
         {/* FOOTER INFO */}
         <div className="mt-6 flex flex-col gap-2 border-t border-white/[0.05] pt-5 text-[11px] text-slate-600 sm:flex-row sm:items-center sm:justify-between">
           <p>
             VIDNOVA Asset Library · MP4 assets for overlay
             customization
           </p>
-
           <p>Admin Panel</p>
         </div>
       </div>
-
       {/* =====================================================
           ADD / EDIT MODAL
           TIDAK DIUBAH
@@ -718,14 +665,12 @@ export default function AssetsPage() {
                     ? "Edit Asset"
                     : "Add New Asset"}
                 </h3>
-
                 <p className="mt-1 text-xs text-slate-500">
                   {editingAsset
                     ? "Update asset information."
                     : "Add an MP4 asset to your VIDNOVA library."}
                 </p>
               </div>
-
               <button
                 type="button"
                 onClick={closeModal}
@@ -754,10 +699,8 @@ export default function AssetsPage() {
                 </svg>
               </button>
             </div>
-
             {/* MODAL BODY */}
             <div className="space-y-5 p-5 sm:p-6">
-
               {/* VIDEO UPLOAD */}
               <div>
                 <label className="mb-2 block text-xs font-medium text-slate-300">
@@ -768,7 +711,6 @@ export default function AssetsPage() {
                     </span>
                   )}
                 </label>
-
                 <label
                   className="
                     flex min-h-[145px]
@@ -795,7 +737,6 @@ export default function AssetsPage() {
                       );
                     }}
                   />
-
                   <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-400/[0.08] text-cyan-400">
                     <svg
                       width="22"
@@ -812,13 +753,11 @@ export default function AssetsPage() {
                       <path d="M4 20h16" />
                     </svg>
                   </div>
-
                   {videoFile ? (
                     <>
                       <p className="text-sm font-medium text-white">
                         {videoFile.name}
                       </p>
-
                       <p className="mt-1 text-xs text-slate-500">
                         {(
                           videoFile.size /
@@ -833,7 +772,6 @@ export default function AssetsPage() {
                       <p className="text-sm font-medium text-slate-300">
                         Click to upload MP4
                       </p>
-
                       <p className="mt-1 text-xs text-slate-600">
                         MP4 video · Recommended 1080 × 1920
                       </p>
@@ -841,14 +779,12 @@ export default function AssetsPage() {
                   )}
                 </label>
               </div>
-
               {/* NAME + CATEGORY */}
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div>
                   <label className="mb-2 block text-xs font-medium text-slate-300">
                     Asset Name
                   </label>
-
                   <input
                     type="text"
                     value={name}
@@ -869,12 +805,10 @@ export default function AssetsPage() {
                     "
                   />
                 </div>
-
                 <div>
                   <label className="mb-2 block text-xs font-medium text-slate-300">
                     Category
                   </label>
-
                   <select
                     value={category}
                     onChange={(event) =>
@@ -900,13 +834,11 @@ export default function AssetsPage() {
                   </select>
                 </div>
               </div>
-
               {/* DESCRIPTION */}
               <div>
                 <label className="mb-2 block text-xs font-medium text-slate-300">
                   Description
                 </label>
-
                 <textarea
                   value={description}
                   onChange={(event) =>
@@ -927,14 +859,12 @@ export default function AssetsPage() {
                   "
                 />
               </div>
-
               {/* THUMBNAIL + STATUS */}
               <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                 <div>
                   <label className="mb-2 block text-xs font-medium text-slate-300">
                     Thumbnail
                   </label>
-
                   <label
                     className="
                       flex h-11 cursor-pointer
@@ -959,7 +889,6 @@ export default function AssetsPage() {
                         );
                       }}
                     />
-
                     <svg
                       width="16"
                       height="16"
@@ -980,7 +909,6 @@ export default function AssetsPage() {
                       <circle cx="8.5" cy="8.5" r="1.5" />
                       <path d="m21 15-5-5L5 21" />
                     </svg>
-
                     <span className="truncate">
                       {thumbnailFile
                         ? thumbnailFile.name
@@ -988,12 +916,10 @@ export default function AssetsPage() {
                     </span>
                   </label>
                 </div>
-
                 <div>
                   <label className="mb-2 block text-xs font-medium text-slate-300">
                     Status
                   </label>
-
                   <select
                     value={status}
                     onChange={(event) =>
@@ -1016,7 +942,6 @@ export default function AssetsPage() {
                   </select>
                 </div>
               </div>
-
               {/* INFO */}
               <div className="rounded-xl border border-cyan-400/[0.08] bg-cyan-400/[0.025] p-3.5">
                 <div className="flex gap-3">
@@ -1035,7 +960,6 @@ export default function AssetsPage() {
                     <path d="M12 11v5" />
                     <path d="M12 8h.01" />
                   </svg>
-
                   <p className="text-xs leading-5 text-slate-500">
                     Assets marked as{" "}
                     <span className="text-cyan-400">
@@ -1047,7 +971,6 @@ export default function AssetsPage() {
                 </div>
               </div>
             </div>
-
             {/* MODAL FOOTER */}
             <div className="flex flex-col-reverse gap-2 border-t border-white/[0.06] p-5 sm:flex-row sm:justify-end sm:px-6">
               <button
@@ -1067,7 +990,6 @@ export default function AssetsPage() {
               >
                 Cancel
               </button>
-
               <button
                 type="button"
                 onClick={handleSaveAsset}
@@ -1095,10 +1017,9 @@ export default function AssetsPage() {
     </div>
   );
 }
-
 /* =========================================================
    STAT CARD
-========================================================= */
+\========================================================= */
 
 function StatCard({
   label,
@@ -1131,7 +1052,6 @@ function StatCard({
       value: "text-amber-300",
     },
   };
-
   return (
     <div
       className="
@@ -1148,18 +1068,15 @@ function StatCard({
           <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-slate-500">
             {label}
           </p>
-
           <p
             className={`mt-2 text-2xl font-semibold tracking-tight ${accentClasses[accent].value}`}
           >
             {value}
           </p>
-
           <p className="mt-1 text-xs text-slate-600">
             {description}
           </p>
         </div>
-
         <div
           className={`flex h-10 w-10 items-center justify-center rounded-xl ${accentClasses[accent].icon}`}
         >
@@ -1177,7 +1094,6 @@ function StatCard({
               <path d="m3 16 9 5 9-5" />
             </svg>
           )}
-
           {icon === "check" && (
             <svg
               width="18"
@@ -1192,7 +1108,6 @@ function StatCard({
               <path d="m5 12 4 4L19 6" />
             </svg>
           )}
-
           {icon === "pause" && (
             <svg
               width="18"
@@ -1207,7 +1122,6 @@ function StatCard({
               <path d="M16 5v14" />
             </svg>
           )}
-
           {icon === "video" && (
             <svg
               width="18"
@@ -1234,10 +1148,9 @@ function StatCard({
     </div>
   );
 }
-
 /* =========================================================
    ASSET CARD
-========================================================= */
+\========================================================= */
 
 function AssetCard({
   asset,
@@ -1275,8 +1188,7 @@ function AssetCard({
           />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#0B1B31] via-[#102C4A] to-[#10152E]">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(34,211,238,0.12),transparent_45%)]" />
-
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%\_50%,rgba(34,211,238,0.12),transparent_45%)]" />
             <div className="relative flex flex-col items-center">
               <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-400/15 bg-cyan-400/[0.06] text-cyan-400">
                 <svg
@@ -1292,16 +1204,13 @@ function AssetCard({
                   <path d="m8 5 11 7-11 7V5Z" />
                 </svg>
               </div>
-
               <span className="text-[10px] font-medium uppercase tracking-[0.18em] text-slate-600">
                 MP4 Preview
               </span>
             </div>
           </div>
         )}
-
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/60 to-transparent" />
-
         <div className="absolute left-3 top-3">
           <span
             className={`
@@ -1324,42 +1233,34 @@ function AssetCard({
                   : "bg-slate-500"
               }`}
             />
-
             {asset.status}
           </span>
         </div>
-
         <div className="absolute right-3 top-3">
           <span className="rounded-full border border-white/[0.08] bg-black/30 px-2.5 py-1 text-[10px] font-medium text-slate-300 backdrop-blur-md">
             {asset.category}
           </span>
         </div>
-
         <div className="absolute bottom-3 right-3 rounded-md bg-black/50 px-2 py-1 text-[10px] font-medium text-white backdrop-blur-md">
           {asset.duration}
         </div>
       </div>
-
       {/* CONTENT */}
       <div className="p-4">
         <div className="min-w-0">
           <h3 className="truncate text-sm font-semibold text-white">
             {asset.name}
           </h3>
-
           <p className="mt-1 line-clamp-2 min-h-[32px] text-xs leading-4 text-slate-500">
             {asset.description}
           </p>
         </div>
-
         <div className="mt-4 grid grid-cols-3 border-y border-white/[0.05] py-3">
           <MetaItem
             label="Resolution"
             value={asset.resolution}
           />
-
           <MetaItem label="Size" value={asset.size} />
-
           <MetaItem
             label="Added"
             value={asset.createdAt.replace(
@@ -1368,7 +1269,6 @@ function AssetCard({
             )}
           />
         </div>
-
         <div className="mt-3 flex items-center gap-2">
           <button
             type="button"
@@ -1400,10 +1300,8 @@ function AssetCard({
               <path d="M12 20h9" />
               <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
             </svg>
-
             Edit
           </button>
-
           <button
             type="button"
             onClick={onToggleStatus}
@@ -1453,7 +1351,6 @@ function AssetCard({
               </svg>
             )}
           </button>
-
           <button
             type="button"
             onClick={onDelete}
@@ -1493,10 +1390,9 @@ function AssetCard({
     </article>
   );
 }
-
 /* =========================================================
    META ITEM
-========================================================= */
+\========================================================= */
 
 function MetaItem({
   label,
@@ -1510,7 +1406,6 @@ function MetaItem({
       <p className="truncate text-[9px] uppercase tracking-[0.1em] text-slate-600">
         {label}
       </p>
-
       <p className="mt-1 truncate text-[10px] font-medium text-slate-400">
         {value}
       </p>

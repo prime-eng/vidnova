@@ -64,7 +64,6 @@ export default function DashboardSidebar({
 
   return (
     <>
-      {/* Mobile Overlay */}
       {isOpen && (
         <button
           type="button"
@@ -84,7 +83,6 @@ export default function DashboardSidebar({
           ${isOpen ? "translate-x-0" : "-translate-x-full"}
         `}
       >
-        {/* Logo */}
         <div className="flex h-[88px] shrink-0 items-center justify-between border-b border-white/[0.06] px-5">
           <Link
             href="/"
@@ -106,7 +104,6 @@ export default function DashboardSidebar({
             />
           </Link>
 
-          {/* Mobile Close */}
           <button
             type="button"
             onClick={onClose}
@@ -121,7 +118,6 @@ export default function DashboardSidebar({
           </button>
         </div>
 
-        {/* User Mini Profile */}
         <div className="px-4 pt-5">
           <div
             className="
@@ -146,7 +142,6 @@ export default function DashboardSidebar({
                 <p className="truncate text-sm font-semibold text-white">
                   Ari
                 </p>
-
                 <p className="truncate text-[11px] text-slate-500">
                   Creator Account
                 </p>
@@ -155,7 +150,6 @@ export default function DashboardSidebar({
           </div>
         </div>
 
-        {/* Navigation */}
         <nav className="flex-1 overflow-y-auto px-4 py-6">
           <p className="mb-3 px-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-600">
             Workspace
@@ -226,7 +220,6 @@ export default function DashboardSidebar({
             })}
           </div>
 
-          {/* Create Design */}
           <div className="mt-7">
             <p className="mb-3 px-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-600">
               Create
@@ -249,17 +242,12 @@ export default function DashboardSidebar({
                 hover:text-cyan-300
               "
             >
-              <Sparkles
-                size={18}
-                className="text-cyan-400"
-              />
-
+              <Sparkles size={18} className="text-cyan-400" />
               <span>Create New Design</span>
             </Link>
           </div>
         </nav>
 
-        {/* Bottom */}
         <div className="shrink-0 border-t border-white/[0.06] p-4">
           <Link
             href="/"

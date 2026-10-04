@@ -1,14 +1,12 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
+import { assetPath } from "@/lib/assetPath";
 type AdminSidebarProps = {
   isOpen: boolean;
   onClose: () => void;
 };
-
 const menuItems = [
   {
     label: "Dashboard",
@@ -70,19 +68,16 @@ const menuItems = [
     ),
   },
 ];
-
 export default function AdminSidebar({
   isOpen,
   onClose,
 }: AdminSidebarProps) {
   const pathname = usePathname();
-
   return (
     <>
       {/* =====================================================
           MOBILE OVERLAY
       ====================================================== */}
-
       <div
         onClick={onClose}
         className={`
@@ -101,11 +96,9 @@ export default function AdminSidebar({
           }
         `}
       />
-
       {/* =====================================================
           SIDEBAR
       ====================================================== */}
-
       <aside
         className={`
           fixed
@@ -134,7 +127,6 @@ export default function AdminSidebar({
         {/* ===================================================
             BRAND
         ==================================================== */}
-
         <div
           className="
             relative
@@ -149,7 +141,7 @@ export default function AdminSidebar({
           "
         >
           <Image
-            src="/images/vidnova_vertical.png"
+            src={assetPath("/images/vidnova_vertical.png")}
             alt="VIDNOVA"
             width={180}
             height={180}
@@ -162,11 +154,9 @@ export default function AdminSidebar({
             "
           />
         </div>
-
         {/* ===================================================
             MOBILE CLOSE
         ==================================================== */}
-
         <button
           type="button"
           onClick={onClose}
@@ -205,26 +195,21 @@ export default function AdminSidebar({
             <path d="M18 6 6 18" />
           </svg>
         </button>
-
         {/* ===================================================
             NAVIGATION
         ==================================================== */}
-
         <nav className="flex-1 overflow-y-auto px-3 py-7">
           {/* MAIN */}
-
           <div className="mb-8">
             <p className="mb-3 px-3 text-[9px] font-medium uppercase tracking-[0.25em] text-slate-600">
               Main
             </p>
-
             <div className="space-y-1">
               {menuItems.map((item) => {
                 const isActive =
                   item.href === "/admin"
                     ? pathname === "/admin"
                     : pathname.startsWith(item.href);
-
                 return (
                   <Link
                     key={item.href}
@@ -251,7 +236,6 @@ export default function AdminSidebar({
                     `}
                   >
                     {/* ACTIVE INDICATOR */}
-
                     {isActive && (
                       <span
                         className="
@@ -267,9 +251,7 @@ export default function AdminSidebar({
                         "
                       />
                     )}
-
                     {/* ICON */}
-
                     <span
                       className={`
                         flex
@@ -288,21 +270,17 @@ export default function AdminSidebar({
                     >
                       {item.icon}
                     </span>
-
                     <span>{item.label}</span>
                   </Link>
                 );
               })}
             </div>
           </div>
-
           {/* STORE */}
-
           <div className="mb-8">
             <p className="mb-3 px-3 text-[9px] font-medium uppercase tracking-[0.25em] text-slate-600">
               Store
             </p>
-
             <Link
               href="/"
               onClick={onClose}
@@ -353,18 +331,14 @@ export default function AdminSidebar({
                   <path d="M8 7h9v9" />
                 </svg>
               </span>
-
               <span>View Store</span>
             </Link>
           </div>
-
           {/* SYSTEM */}
-
           <div>
             <p className="mb-3 px-3 text-[9px] font-medium uppercase tracking-[0.25em] text-slate-600">
               System
             </p>
-
             {/* SETTINGS */}
             <Link
               href="/admin/settings"
@@ -393,7 +367,6 @@ export default function AdminSidebar({
               `}
             >
               {/* ACTIVE INDICATOR */}
-
               {pathname.startsWith("/admin/settings") && (
                 <span
                   className="
@@ -409,7 +382,6 @@ export default function AdminSidebar({
                   "
                 />
               )}
-
               <span
                 className={`
                   flex
@@ -437,20 +409,16 @@ export default function AdminSidebar({
                   strokeLinejoin="round"
                 >
                   <circle cx="12" cy="12" r="3" />
-
                   <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-1.8 1.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5v.1h-2.5v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1-1.8-1.8.1-.1A1.7 1.7 0 0 0 8.1 15a1.7 1.7 0 0 0-1.5-1H6.5v-2.5h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1 1.8-1.8.1.1a1.7 1.7 0 0 0 1.9.3 1.7 1.7 0 0 0 1-1.5v-.1H15v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1 1.8 1.8-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.5 1h.1V14h-.1a1.7 1.7 0 0 0-1.5 1Z" />
                 </svg>
               </span>
-
               <span>Settings</span>
             </Link>
           </div>
         </nav>
-
         {/* ===================================================
             ADMIN PROFILE
         ==================================================== */}
-
         <div className="shrink-0 border-t border-white/[0.06] p-4">
           <div
             className="
@@ -465,7 +433,6 @@ export default function AdminSidebar({
             "
           >
             {/* AVATAR */}
-
             <div
               className="
                 flex
@@ -487,21 +454,16 @@ export default function AdminSidebar({
             >
               A
             </div>
-
             {/* INFO */}
-
             <div className="min-w-0 flex-1">
               <p className="truncate text-xs font-semibold text-white">
                 Administrator
               </p>
-
               <p className="mt-0.5 truncate text-[10px] text-slate-600">
                 admin@vidnova.id
               </p>
             </div>
-
             {/* LOGOUT */}
-
             <button
               type="button"
               aria-label="Logout"
