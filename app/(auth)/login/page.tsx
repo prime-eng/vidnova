@@ -3,948 +3,949 @@ import Image from "next/image";
 import Link from "next/link";
 
 import LoginForm from "@/components/auth/LoginForm";
+
 import { assetPath } from "@/lib/assetPath";
 
 export default function LoginPage() {
 
-  return (
+  return (
 
-    <main className="relative min-h-screen overflow-hidden bg-[#03040A] text-white">
+    <main className="relative min-h-screen overflow-hidden bg-[#03040A] text-white">
 
-      {/* =========================================================
+      {/* =========================================================
 
-          BACKGROUND
+          BACKGROUND
 
-      ========================================================== */}
+      ========================================================== */}
 
-      <div
+      <div
 
-        className="
+        className="
 
-          absolute
+          absolute
 
-          inset-0
+          inset-0
 
-          bg-[linear-gradient(135deg,#02050B_0%,#06121D_25%,#071A2D_48%,#0B1030_72%,#070513_100%)]
+          bg-[linear-gradient(135deg,#02050B_0%,#06121D_25%,#071A2D_48%,#0B1030_72%,#070513_100%)]
 
-        "
+        "
 
-      />
+      />
 
-      {/* Cyan Glow */}
+      {/* Cyan Glow */}
 
-      <div
+      <div
 
-        className="
+        className="
 
-          absolute
+          absolute
 
-          -left-32
+          -left-32
 
-          -top-32
+          -top-32
 
-          h-[500px]
+          h-[500px]
 
-          w-[500px]
+          w-[500px]
 
-          rounded-full
+          rounded-full
 
-          bg-cyan-500/10
+          bg-cyan-500/10
 
-          blur-[120px]
+          blur-[120px]
 
-        "
+        "
 
-      />
+      />
 
-      {/* Blue Glow */}
+      {/* Blue Glow */}
 
-      <div
+      <div
 
-        className="
+        className="
 
-          absolute
+          absolute
 
-          left-[35%]
+          left-[35%]
 
-          top-[15%]
+          top-[15%]
 
-          h-[450px]
+          h-[450px]
 
-          w-[450px]
+          w-[450px]
 
-          rounded-full
+          rounded-full
 
-          bg-blue-600/10
+          bg-blue-600/10
 
-          blur-[130px]
+          blur-[130px]
 
-        "
+        "
 
-      />
+      />
 
-      {/* Violet Glow */}
+      {/* Violet Glow */}
 
-      <div
+      <div
 
-        className="
+        className="
 
-          absolute
+          absolute
 
-          -bottom-40
+          -bottom-40
 
-          right-[-100px]
+          right-[-100px]
 
-          h-[550px]
+          h-[550px]
 
-          w-[550px]
+          w-[550px]
 
-          rounded-full
+          rounded-full
 
-          bg-violet-600/10
+          bg-violet-600/10
 
-          blur-[140px]
+          blur-[140px]
 
-        "
+        "
 
-      />
+      />
 
-      {/* Dark Overlay */}
+      {/* Dark Overlay */}
 
-      <div className="absolute inset-0 bg-black/20" />
+      <div className="absolute inset-0 bg-black/20" />
 
-      {/* Subtle Grid */}
+      {/* Subtle Grid */}
 
-      <div
+      <div
 
-        className="
+        className="
 
-          absolute
+          absolute
 
-          inset-0
+          inset-0
 
-          opacity-[0.025]
+          opacity-[0.025]
 
-          [background-image:linear-gradient(rgba(255,255,255,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.5)_1px,transparent_1px)]
+          [background-image:linear-gradient(rgba(255,255,255,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.5)_1px,transparent_1px)]
 
-          [background-size:60px_60px]
+          [background-size:60px_60px]
 
-        "
+        "
 
-      />
+      />
 
-      {/* =========================================================
+      {/* =========================================================
 
-          CONTENT
+          CONTENT
 
-      ========================================================== */}
+      ========================================================== */}
 
-      <div className="relative z-10 min-h-screen">
+      <div className="relative z-10 min-h-screen">
 
-        {/* =======================================================
+        {/* =======================================================
 
-            HEADER
+            HEADER
 
-        ======================================================== */}
+        ======================================================== */}
 
-        <header className="flex items-center justify-between px-6 py-6 sm:px-10 lg:px-14">
+        <header className="flex items-center justify-between px-6 py-6 sm:px-10 lg:px-14">
 
-          {/* Logo */}
+          {/* Logo */}
 
-          <Link
+          <Link
 
-            href="/"
+            href="/"
 
-            className="group inline-flex items-center"
+            className="group inline-flex items-center"
 
-          >
+          >
 
-            <Image
+            <Image
 
-              src={assetPath("/images/vidnova_teks.png")}
+              src={assetPath("/images/vidnova_teks.png")}
 
-              alt="VIDNOVA by VIDNITY"
+              alt="VIDNOVA by VIDNITY"
 
-              width={866}
+              width={866}
 
-              height={288}
+              height={288}
 
-              priority
+              priority
 
-              className="
+              className="
 
-                h-auto
+                h-auto
 
-                w-[185px]
+                w-[185px]
 
-                object-contain
+                object-contain
 
-                drop-shadow-[0_0_18px_rgba(0,180,255,0.12)]
+                drop-shadow-[0_0_18px_rgba(0,180,255,0.12)]
 
-                transition-all
+                transition-all
 
-                duration-300
+                duration-300
 
-                group-hover:scale-[1.02]
+                group-hover:scale-[1.02]
 
-                group-hover:opacity-90
+                group-hover:opacity-90
 
-              "
+              "
 
-            />
+            />
 
-          </Link>
+          </Link>
 
-          {/* Register Link */}
+          {/* Register Link */}
 
-          <div className="flex items-center gap-2 text-sm">
+          <div className="flex items-center gap-2 text-sm">
 
-            <span className="hidden text-slate-500 sm:inline">
+            <span className="hidden text-slate-500 sm:inline">
 
-              Don&apos;t have an account?
+              Don&apos;t have an account?
 
-            </span>
+            </span>
 
-            <Link
+            <Link
 
-              href="/register"
+              href="/register"
 
-              className="
+              className="
 
-                rounded-lg
+                rounded-lg
 
-                px-3
+                px-3
 
-                py-2
+                py-2
 
-                font-medium
+                font-medium
 
-                text-cyan-300
+                text-cyan-300
 
-                transition
+                transition
 
-                hover:bg-cyan-400/5
+                hover:bg-cyan-400/5
 
-                hover:text-cyan-200
+                hover:text-cyan-200
 
-              "
+              "
 
-            >
+            >
 
-              Sign Up
+              Sign Up
 
-            </Link>
+            </Link>
 
-          </div>
+          </div>
 
-        </header>
+        </header>
 
-        {/* =======================================================
+        {/* =======================================================
 
-            MAIN
+            MAIN
 
-        ======================================================== */}
+        ======================================================== */}
 
-        <section
+        <section
 
-          className="
+          className="
 
-            mx-auto
+            mx-auto
 
-            grid
+            grid
 
-            min-h-[calc(100vh-105px)]
+            min-h-[calc(100vh-105px)]
 
-            w-full
+            w-full
 
-            max-w-[1450px]
+            max-w-[1450px]
 
-            grid-cols-1
+            grid-cols-1
 
-            gap-10
+            gap-10
 
-            px-6
+            px-6
 
-            pb-10
+            pb-10
 
-            sm:px-10
+            sm:px-10
 
-            lg:grid-cols-[minmax(0,1fr)_480px]
+            lg:grid-cols-[minmax(0,1fr)_480px]
 
-            lg:items-center
+            lg:items-center
 
-            lg:gap-20
+            lg:gap-20
 
-            lg:px-14
+            lg:px-14
 
-          "
+          "
 
-        >
+        >
 
-          {/* =====================================================
+          {/* =====================================================
 
-              LEFT SIDE
+              LEFT SIDE
 
-          ====================================================== */}
+          ====================================================== */}
 
-          <div className="flex w-full max-w-3xl flex-col justify-center">
+          <div className="flex w-full max-w-3xl flex-col justify-center">
 
-            {/* Badge */}
+            {/* Badge */}
 
-            <div
+            <div
 
-              className="
+              className="
 
-                mb-5
+                mb-5
 
-                inline-flex
+                inline-flex
 
-                w-fit
+                w-fit
 
-                items-center
+                items-center
 
-                gap-2
+                gap-2
 
-                rounded-full
+                rounded-full
 
-                border
+                border
 
-                border-cyan-400/15
+                border-cyan-400/15
 
-                bg-cyan-400/[0.04]
+                bg-cyan-400/[0.04]
 
-                px-3
+                px-3
 
-                py-1.5
+                py-1.5
 
-                text-[10px]
+                text-[10px]
 
-                font-semibold
+                font-semibold
 
-                uppercase
+                uppercase
 
-                tracking-[0.2em]
+                tracking-[0.2em]
 
-                text-cyan-300/80
+                text-cyan-300/80
 
-              "
+              "
 
-            >
+            >
 
-              <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.8)]" />
+              <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_10px_rgba(34,211,238,0.8)]" />
 
-              STREAM CREATOR PLATFORM
+              STREAM CREATOR PLATFORM
 
-            </div>
+            </div>
 
-            {/* Heading */}
+            {/* Heading */}
 
-            <h2
+            <h2
 
-              className="
+              className="
 
-                max-w-2xl
+                max-w-2xl
 
-                text-4xl
+                text-4xl
 
-                font-semibold
+                font-semibold
 
-                leading-[1.05]
+                leading-[1.05]
 
-                tracking-[-0.04em]
+                tracking-[-0.04em]
 
-                text-white
+                text-white
 
-                sm:text-5xl
+                sm:text-5xl
 
-                lg:text-6xl
+                lg:text-6xl
 
-              "
+              "
 
-            >
+            >
 
-              Welcome back.
+              Welcome back.
 
-              <br />
+              <br />
 
-              <span
+              <span
 
-                className="
+                className="
 
-                  bg-gradient-to-r
+                  bg-gradient-to-r
 
-                  from-cyan-300
+                  from-cyan-300
 
-                  via-blue-400
+                  via-blue-400
 
-                  to-violet-400
+                  to-violet-400
 
-                  bg-clip-text
+                  bg-clip-text
 
-                  text-transparent
+                  text-transparent
 
-                "
+                "
 
-              >
+              >
 
-                Your stream is waiting.
+                Your stream is waiting.
 
-              </span>
+              </span>
 
-            </h2>
+            </h2>
 
-            {/* Description */}
+            {/* Description */}
 
-            <p className="mt-6 max-w-xl text-sm leading-7 text-slate-400 sm:text-base">
+            <p className="mt-6 max-w-xl text-sm leading-7 text-slate-400 sm:text-base">
 
-              Continue where you left off and create a stream experience
+              Continue where you left off and create a stream experience
 
-              that looks exactly the way you imagined it.
+              that looks exactly the way you imagined it.
 
-            </p>
+            </p>
 
-            {/* =================================================
+            {/* =================================================
 
-                STREAM PREVIEW
+                STREAM PREVIEW
 
-            ================================================== */}
+            ================================================== */}
 
-            <div className="relative mt-10 hidden h-[290px] w-full max-w-[700px] md:block">
+            <div className="relative mt-10 hidden h-[290px] w-full max-w-[700px] md:block">
 
-              {/* Main Preview */}
+              {/* Main Preview */}
 
-              <div
+              <div
 
-                className="
+                className="
 
-                  absolute
+                  absolute
 
-                  left-0
+                  left-0
 
-                  top-0
+                  top-0
 
-                  h-[235px]
+                  h-[235px]
 
-                  w-[430px]
+                  w-[430px]
 
-                  overflow-hidden
+                  overflow-hidden
 
-                  rounded-2xl
+                  rounded-2xl
 
-                  border
+                  border
 
-                  border-white/10
+                  border-white/10
 
-                  bg-[#080B14]
+                  bg-[#080B14]
 
-                  shadow-[0_25px_80px_rgba(0,0,0,0.45)]
+                  shadow-[0_25px_80px_rgba(0,0,0,0.45)]
 
-                "
+                "
 
-              >
+              >
 
-                {/* Fake Stream Background */}
+                {/* Fake Stream Background */}
 
-                <div
+                <div
 
-                  className="
+                  className="
 
-                    absolute
+                    absolute
 
-                    inset-0
+                    inset-0
 
-                    bg-[radial-gradient(circle_at_70%_30%,rgba(0,180,255,0.22),transparent_35%),radial-gradient(circle_at_25%_75%,rgba(124,58,237,0.20),transparent_35%),linear-gradient(135deg,#08101B,#0B1022,#080612)]
+                    bg-[radial-gradient(circle_at_70%_30%,rgba(0,180,255,0.22),transparent_35%),radial-gradient(circle_at_25%_75%,rgba(124,58,237,0.20),transparent_35%),linear-gradient(135deg,#08101B,#0B1022,#080612)]
 
-                  "
+                  "
 
-                />
+                />
 
-                {/* Grid */}
+                {/* Grid */}
 
-                <div
+                <div
 
-                  className="
+                  className="
 
-                    absolute
+                    absolute
 
-                    inset-0
+                    inset-0
 
-                    opacity-[0.08]
+                    opacity-[0.08]
 
-                    [background-image:linear-gradient(rgba(255,255,255,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.5)_1px,transparent_1px)]
+                    [background-image:linear-gradient(rgba(255,255,255,0.5)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.5)_1px,transparent_1px)]
 
-                    [background-size:30px_30px]
+                    [background-size:30px_30px]
 
-                  "
+                  "
 
-                />
+                />
 
-                {/* Center Stream Area */}
+                {/* Center Stream Area */}
 
-                <div className="absolute inset-x-12 top-8 bottom-12 rounded-xl border border-white/10 bg-black/20 backdrop-blur-[2px]">
+                <div className="absolute inset-x-12 top-8 bottom-12 rounded-xl border border-white/10 bg-black/20 backdrop-blur-[2px]">
 
-                  <div className="flex h-full items-center justify-center">
+                  <div className="flex h-full items-center justify-center">
 
-                    <div className="text-center">
+                    <div className="text-center">
 
-                      <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full border border-cyan-400/30 bg-cyan-400/10">
+                      <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full border border-cyan-400/30 bg-cyan-400/10">
 
-                        <div className="h-2.5 w-2.5 rounded-full bg-cyan-300 shadow-[0_0_15px_rgba(34,211,238,0.9)]" />
+                        <div className="h-2.5 w-2.5 rounded-full bg-cyan-300 shadow-[0_0_15px_rgba(34,211,238,0.9)]" />
 
-                      </div>
+                      </div>
 
-                      <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/60">
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/60">
 
-                        Stream Preview
+                        Stream Preview
 
-                      </p>
+                      </p>
 
-                    </div>
+                    </div>
 
-                  </div>
+                  </div>
 
-                </div>
+                </div>
 
-                {/* Live Label */}
+                {/* Live Label */}
 
-                <div className="absolute left-4 top-4 flex items-center gap-2 rounded-md border border-red-400/20 bg-black/40 px-2.5 py-1.5 backdrop-blur-md">
+                <div className="absolute left-4 top-4 flex items-center gap-2 rounded-md border border-red-400/20 bg-black/40 px-2.5 py-1.5 backdrop-blur-md">
 
-                  <span className="h-1.5 w-1.5 rounded-full bg-red-400 shadow-[0_0_8px_rgba(248,113,113,0.9)]" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-red-400 shadow-[0_0_8px_rgba(248,113,113,0.9)]" />
 
-                  <span className="text-[9px] font-bold uppercase tracking-wider text-white">
+                  <span className="text-[9px] font-bold uppercase tracking-wider text-white">
 
-                    Live
+                    Live
 
-                  </span>
+                  </span>
 
-                </div>
+                </div>
 
-                {/* Bottom Overlay */}
+                {/* Bottom Overlay */}
 
-                <div className="absolute inset-x-0 bottom-0 h-12 border-t border-white/10 bg-black/50 backdrop-blur-md">
+                <div className="absolute inset-x-0 bottom-0 h-12 border-t border-white/10 bg-black/50 backdrop-blur-md">
 
-                  <div className="flex h-full items-center justify-between px-4">
+                  <div className="flex h-full items-center justify-between px-4">
 
-                    <div>
+                    <div>
 
-                      <div className="h-1.5 w-20 rounded-full bg-white/20" />
+                      <div className="h-1.5 w-20 rounded-full bg-white/20" />
 
-                      <div className="mt-2 h-1 w-12 rounded-full bg-white/10" />
+                      <div className="mt-2 h-1 w-12 rounded-full bg-white/10" />
 
-                    </div>
+                    </div>
 
-                    <div className="flex gap-1.5">
+                    <div className="flex gap-1.5">
 
-                      <span className="h-5 w-5 rounded-md bg-cyan-400/20" />
+                      <span className="h-5 w-5 rounded-md bg-cyan-400/20" />
 
-                      <span className="h-5 w-5 rounded-md bg-blue-400/20" />
+                      <span className="h-5 w-5 rounded-md bg-blue-400/20" />
 
-                      <span className="h-5 w-5 rounded-md bg-violet-400/20" />
+                      <span className="h-5 w-5 rounded-md bg-violet-400/20" />
 
-                    </div>
+                    </div>
 
-                  </div>
+                  </div>
 
-                </div>
+                </div>
 
-              </div>
+              </div>
 
-              {/* Customize Floating Card */}
+              {/* Customize Floating Card */}
 
-              <div
+              <div
 
-                className="
+                className="
 
-                  absolute
+                  absolute
 
-                  right-4
+                  right-4
 
-                  top-5
+                  top-5
 
-                  w-[190px]
+                  w-[190px]
 
-                  rounded-xl
+                  rounded-xl
 
-                  border
+                  border
 
-                  border-white/10
+                  border-white/10
 
-                  bg-[#0A0D17]/90
+                  bg-[#0A0D17]/90
 
-                  p-4
+                  p-4
 
-                  shadow-[0_20px_50px_rgba(0,0,0,0.4)]
+                  shadow-[0_20px_50px_rgba(0,0,0,0.4)]
 
-                  backdrop-blur-xl
+                  backdrop-blur-xl
 
-                "
+                "
 
-              >
+              >
 
-                <div className="mb-3 flex items-center justify-between">
+                <div className="mb-3 flex items-center justify-between">
 
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-slate-400">
+                  <span className="text-[10px] font-semibold uppercase tracking-[0.15em] text-slate-400">
 
-                    Customize
+                    Customize
 
-                  </span>
+                  </span>
 
-                  <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 shadow-[0_0_8px_rgba(34,211,238,0.8)]" />
 
-                </div>
+                </div>
 
-                <div className="space-y-2.5">
+                <div className="space-y-2.5">
 
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between">
 
-                    <span className="text-[10px] text-slate-500">
+                    <span className="text-[10px] text-slate-500">
 
-                      Background
+                      Background
 
-                    </span>
+                    </span>
 
-                    <span className="h-3 w-7 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500" />
+                    <span className="h-3 w-7 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500" />
 
-                  </div>
+                  </div>
 
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between">
 
-                    <span className="text-[10px] text-slate-500">
+                    <span className="text-[10px] text-slate-500">
 
-                      Animation
+                      Animation
 
-                    </span>
+                    </span>
 
-                    <span className="text-[9px] font-medium text-cyan-300">
+                    <span className="text-[9px] font-medium text-cyan-300">
 
-                      ON
+                      ON
 
-                    </span>
+                    </span>
 
-                  </div>
+                  </div>
 
-                  <div className="flex items-center justify-between">
+                  <div className="flex items-center justify-between">
 
-                    <span className="text-[10px] text-slate-500">
+                    <span className="text-[10px] text-slate-500">
 
-                      Effects
+                      Effects
 
-                    </span>
+                    </span>
 
-                    <span className="text-[9px] font-medium text-violet-300">
+                    <span className="text-[9px] font-medium text-violet-300">
 
-                      04
+                      04
 
-                    </span>
+                    </span>
 
-                  </div>
+                  </div>
 
-                </div>
+                </div>
 
-              </div>
+              </div>
 
-              {/* Stream Ready Floating Card */}
+              {/* Stream Ready Floating Card */}
 
-              <div
+              <div
 
-                className="
+                className="
 
-                  absolute
+                  absolute
 
-                  bottom-0
+                  bottom-0
 
-                  right-20
+                  right-20
 
-                  rounded-xl
+                  rounded-xl
 
-                  border
+                  border
 
-                  border-emerald-400/10
+                  border-emerald-400/10
 
-                  bg-[#08110F]/90
+                  bg-[#08110F]/90
 
-                  px-4
+                  px-4
 
-                  py-3
+                  py-3
 
-                  shadow-[0_15px_40px_rgba(0,0,0,0.35)]
+                  shadow-[0_15px_40px_rgba(0,0,0,0.35)]
 
-                  backdrop-blur-xl
+                  backdrop-blur-xl
 
-                "
+                "
 
-              >
+              >
 
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3">
 
-                  <div className="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-400/10">
+                  <div className="flex h-7 w-7 items-center justify-center rounded-full bg-emerald-400/10">
 
-                    <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.8)]" />
+                    <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,0.8)]" />
 
-                  </div>
+                  </div>
 
-                  <div>
+                  <div>
 
-                    <p className="text-[10px] font-semibold text-white">
+                    <p className="text-[10px] font-semibold text-white">
 
-                      Stream Ready
+                      Stream Ready
 
-                    </p>
+                    </p>
 
-                    <p className="text-[9px] text-slate-500">
+                    <p className="text-[9px] text-slate-500">
 
-                      Your visual identity is ready.
+                      Your visual identity is ready.
 
-                    </p>
+                    </p>
 
-                  </div>
+                  </div>
 
-                </div>
+                </div>
 
-              </div>
+              </div>
 
-            </div>
+            </div>
 
-            {/* =================================================
+            {/* =================================================
 
-                FEATURES
+                FEATURES
 
-            ================================================== */}
+            ================================================== */}
 
-            <div className="mt-8 grid max-w-3xl grid-cols-3 gap-3">
+            <div className="mt-8 grid max-w-3xl grid-cols-3 gap-3">
 
-              {/* Feature 1 */}
+              {/* Feature 1 */}
 
-              <div
+              <div
 
-                className="
+                className="
 
-                  rounded-xl
+                  rounded-xl
 
-                  border
+                  border
 
-                  border-white/[0.07]
+                  border-white/[0.07]
 
-                  bg-white/[0.025]
+                  bg-white/[0.025]
 
-                  p-4
+                  p-4
 
-                  transition
+                  transition
 
-                  duration-300
+                  duration-300
 
-                  hover:border-cyan-400/20
+                  hover:border-cyan-400/20
 
-                  hover:bg-white/[0.04]
+                  hover:bg-white/[0.04]
 
-                "
+                "
 
-              >
+              >
 
-                <div className="mb-3 flex h-8 w-8 items-center justify-center rounded-lg bg-cyan-400/10 text-xs text-cyan-300">
+                <div className="mb-3 flex h-8 w-8 items-center justify-center rounded-lg bg-cyan-400/10 text-xs text-cyan-300">
 
-                  01
+                  01
 
-                </div>
+                </div>
 
-                <p className="text-xs font-semibold text-white">
+                <p className="text-xs font-semibold text-white">
 
-                  Choose
+                  Choose
 
-                </p>
+                </p>
 
-                <p className="mt-1 text-[10px] leading-4 text-slate-600">
+                <p className="mt-1 text-[10px] leading-4 text-slate-600">
 
-                  Pick your overlay.
+                  Pick your overlay.
 
-                </p>
+                </p>
 
-              </div>
+              </div>
 
-              {/* Feature 2 */}
+              {/* Feature 2 */}
 
-              <div
+              <div
 
-                className="
+                className="
 
-                  rounded-xl
+                  rounded-xl
 
-                  border
+                  border
 
-                  border-white/[0.07]
+                  border-white/[0.07]
 
-                  bg-white/[0.025]
+                  bg-white/[0.025]
 
-                  p-4
+                  p-4
 
-                  transition
+                  transition
 
-                  duration-300
+                  duration-300
 
-                  hover:border-blue-400/20
+                  hover:border-blue-400/20
 
-                  hover:bg-white/[0.04]
+                  hover:bg-white/[0.04]
 
-                "
+                "
 
-              >
+              >
 
-                <div className="mb-3 flex h-8 w-8 items-center justify-center rounded-lg bg-blue-400/10 text-xs text-blue-300">
+                <div className="mb-3 flex h-8 w-8 items-center justify-center rounded-lg bg-blue-400/10 text-xs text-blue-300">
 
-                  02
+                  02
 
-                </div>
+                </div>
 
-                <p className="text-xs font-semibold text-white">
+                <p className="text-xs font-semibold text-white">
 
-                  Customize
+                  Customize
 
-                </p>
+                </p>
 
-                <p className="mt-1 text-[10px] leading-4 text-slate-600">
+                <p className="mt-1 text-[10px] leading-4 text-slate-600">
 
-                  Make it yours.
+                  Make it yours.
 
-                </p>
+                </p>
 
-              </div>
+              </div>
 
-              {/* Feature 3 */}
+              {/* Feature 3 */}
 
-              <div
+              <div
 
-                className="
+                className="
 
-                  rounded-xl
+                  rounded-xl
 
-                  border
+                  border
 
-                  border-white/[0.07]
+                  border-white/[0.07]
 
-                  bg-white/[0.025]
+                  bg-white/[0.025]
 
-                  p-4
+                  p-4
 
-                  transition
+                  transition
 
-                  duration-300
+                  duration-300
 
-                  hover:border-violet-400/20
+                  hover:border-violet-400/20
 
-                  hover:bg-white/[0.04]
+                  hover:bg-white/[0.04]
 
-                "
+                "
 
-              >
+              >
 
-                <div className="mb-3 flex h-8 w-8 items-center justify-center rounded-lg bg-violet-400/10 text-xs text-violet-300">
+                <div className="mb-3 flex h-8 w-8 items-center justify-center rounded-lg bg-violet-400/10 text-xs text-violet-300">
 
-                  03
+                  03
 
-                </div>
+                </div>
 
-                <p className="text-xs font-semibold text-white">
+                <p className="text-xs font-semibold text-white">
 
-                  Stream
+                  Stream
 
-                </p>
+                </p>
 
-                <p className="mt-1 text-[10px] leading-4 text-slate-600">
+                <p className="mt-1 text-[10px] leading-4 text-slate-600">
 
-                  Go live with style.
+                  Go live with style.
 
-                </p>
+                </p>
 
-              </div>
+              </div>
 
-            </div>
+            </div>
 
-          </div>
+          </div>
 
-          {/* =====================================================
+          {/* =====================================================
 
-              RIGHT SIDE - LOGIN CARD
+              RIGHT SIDE - LOGIN CARD
 
-          ====================================================== */}
+          ====================================================== */}
 
-          <div className="flex w-full items-center justify-center lg:justify-end">
+          <div className="flex w-full items-center justify-center lg:justify-end">
 
-            <div
+            <div
 
-              className="
+              className="
 
-                w-full
+                w-full
 
-                max-w-[480px]
+                max-w-[480px]
 
-                rounded-[28px]
+                rounded-[28px]
 
-                border
+                border
 
-                border-white/[0.09]
+                border-white/[0.09]
 
-                bg-[#080A12]/75
+                bg-[#080A12]/75
 
-                p-6
+                p-6
 
-                shadow-[0_30px_100px_rgba(0,0,0,0.45)]
+                shadow-[0_30px_100px_rgba(0,0,0,0.45)]
 
-                backdrop-blur-2xl
+                backdrop-blur-2xl
 
-                sm:p-8
+                sm:p-8
 
-              "
+              "
 
-            >
+            >
 
-              {/* Top Accent */}
+              {/* Top Accent */}
 
-              <div
+              <div
 
-                className="
+                className="
 
-                  mb-8
+                  mb-8
 
-                  h-px
+                  h-px
 
-                  w-full
+                  w-full
 
-                  bg-gradient-to-r
+                  bg-gradient-to-r
 
-                  from-transparent
+                  from-transparent
 
-                  via-cyan-400/50
+                  via-cyan-400/50
 
-                  to-transparent
+                  to-transparent
 
-                "
+                "
 
-              />
+              />
 
-              <LoginForm />
+              <LoginForm />
 
-            </div>
+            </div>
 
-          </div>
+          </div>
 
-        </section>
+        </section>
 
-        {/* =======================================================
+        {/* =======================================================
 
-            MOBILE FOOTER
+            MOBILE FOOTER
 
-        ======================================================== */}
+        ======================================================== */}
 
-        <div className="px-6 pb-6 text-center text-[10px] text-slate-700 md:hidden">
+        <div className="px-6 pb-6 text-center text-[10px] text-slate-700 md:hidden">
 
-          Create. Customize. Stream.
+          Create. Customize. Stream.
 
-        </div>
+        </div>
 
-      </div>
+      </div>
 
-    </main>
+    </main>
 
-  );
+  );
 
 }
